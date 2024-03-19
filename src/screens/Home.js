@@ -1,11 +1,12 @@
-import { StyleSheet, View, Text} from 'react-native';
+import { StyleSheet, View, Text, Image} from 'react-native';
 
 
 export default function Home() {
     return (
         <View style={styles.container}>
+            <Image source={require('../images/tarefas.png')} style={styles.logo} />
             <Text style={styles.titlile}>
-                HomeScreen
+                Suas tarefas
             </Text>
         </View>
     );
@@ -13,17 +14,30 @@ export default function Home() {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#fff',
+        flexDirection: 'row',
+        backgroundColor: 'cornflowerblue',
+        justifyContent: 'space-between',
         alignItems: 'center',
-        justifyContent: 'left',
         padding: 30,
+        borderWidth: 2
+        
     },
     titlile : {
         fontSize: 20,
         fontWeight: 'bold',
         color: '#000',
         textAlign: 'center',
+        backgroundColor: 'white',
+        padding: 10,
+        borderRadius: 100,
+        borderWidth: 1,
+        borderColor: 'black',
+        
     },
-    
+
+    logo: {
+        width: 90,
+        height: 90,
+        resizeMode: 'contain',    
+     }
 });

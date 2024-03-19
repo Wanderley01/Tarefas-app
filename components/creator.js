@@ -6,7 +6,7 @@ import CalendarComponent from './relogio';
 export default function CreateBar() {
     const [text, setText] = useState('');
     const [altura, setAltura] = useState(40);
-    
+
 
     function pularTexto() {
         if (setText < 36) {
@@ -37,12 +37,15 @@ export default function CreateBar() {
                 placeholderTextColor="#808080"
                 multiline={true}
             />
-            
-            <CalendarComponent/>
 
 
+            <CalendarComponent style={styles.relogio}/>
 
         </View>
+
+        
+
+        
     )
 }
 

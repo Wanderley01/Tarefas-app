@@ -1,9 +1,10 @@
 import CreateBar from '../../components/creator';
-import { StyleSheet ,View, Text, TextInput, Button} from 'react-native';
+import { StyleSheet ,View, Text, TextInput, Button, Image} from 'react-native';
 
 export default function Create() {
     return (
         <View style={styles.container}>
+            <Image source={require('../images/tarefas.png')} style={styles.logo} />
             <View style={styles.containermore}>
                   <CreateBar/>
             </View>
@@ -15,11 +16,12 @@ export default function Create() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: 'cornflowerblue',
         alignItems: '',
         justifyContent: 'center',
         padding: 40,
     },
+    
     titlile : {
         fontSize: 20,
         fontWeight: 'bold',
@@ -29,12 +31,21 @@ const styles = StyleSheet.create({
 
     containermore : {
         borderRadius: 4,
-        backgroundColor: 'rgb(211,211,211)',
+        backgroundColor: 'lightskyblue',
+        borderWidth: 2,
         alignItems: 'center',
         justifyContent: 'center',
         padding: 10,
         marginTop: 10,
         flexDirection: 'row',   
      },
+
+     logo: {
+        width: 90,
+        height: 90,
+        resizeMode: 'contain',
+        alignSelf: 'center',
+        
+     }
 
 });

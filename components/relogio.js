@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Calendar } from 'react-native-calendars';
 
 const CalendarComponent = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState('');
 
-  const handleDayPress = day => {
+  const handleDayPress = (day) => {
     setSelectedDate(day.dateString);
   };
 
@@ -17,24 +17,23 @@ const CalendarComponent = () => {
           [selectedDate]: { selected: true, marked: true, selectedColor: 'blue' },
         }}
       />
-      {selectedDate && (
-        <Text style={styles.selectedDateText}>Data selecionada: {selectedDate}</Text>
-      )}
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    padding: 20,
-  },
-  selectedDateText: {
-    marginTop: 20,
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
+const styles = StyleSheet.create({   
+    relogio: {
+        backgroundColor: 'white',
+        borderRadius: 4,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 1,
+    },
+
+    container: {
+        marginTop: 20,
+        borderWidth: 1,
+    },
 });
 
 export default CalendarComponent;
