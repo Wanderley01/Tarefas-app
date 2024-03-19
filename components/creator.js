@@ -1,6 +1,6 @@
 import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
 import React, { useState } from 'react';
-
+import CalendarComponent from './relogio';
 
 
 export default function CreateBar() {
@@ -38,7 +38,7 @@ export default function CreateBar() {
                 multiline={true}
             />
             
-            
+            <CalendarComponent/>
 
 
 

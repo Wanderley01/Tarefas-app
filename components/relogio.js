@@ -1,28 +1,40 @@
-import React, { useState } from 'react'
-import { Button } from 'react-native'
-import DatePicker from 'react-native-date-picker'
+import React, { useState } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { Calendar } from 'react-native-calendars';
 
-export default Relogio() 
+const CalendarComponent = () => {
+  const [selectedDate, setSelectedDate] = useState(null);
 
-function Relogio() {
-  const [date, setDate] = useState(new Date())
-  const [open, setOpen] = useState(false)
+  const handleDayPress = day => {
+    setSelectedDate(day.dateString);
+  };
 
   return (
-    <>
-      <Button title="Open" onPress={() => setOpen(true)} />
-      <DatePicker
-        modal
-        open={open}
-        date={date}
-        onConfirm={(date) => {
-          setOpen(false)
-          setDate(date)
-        }}
-        onCancel={() => {
-          setOpen(false)
+    <View style={styles.container}>
+      <Calendar
+        onDayPress={handleDayPress}
+        markedDates={{
+          [selectedDate]: { selected: true, marked: true, selectedColor: 'blue' },
         }}
       />
-    </>
-  )
-}
+      {selectedDate && (
+        <Text style={styles.selectedDateText}>Data selecionada: {selectedDate}</Text>
+      )}
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    padding: 20,
+  },
+  selectedDateText: {
+    marginTop: 20,
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+});
+
+export default CalendarComponent;
