@@ -1,12 +1,15 @@
 import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
 import React, { useState } from 'react';
 import CalendarComponent from './relogio';
-
+import BotaoCor from './color';
 
 export default function CreateBar() {
     const [text, setText] = useState('');
     const [altura, setAltura] = useState(40);
+    
+    function saveTask() {
 
+    }
 
     function pularTexto() {
         if (setText < 36) {
@@ -19,7 +22,7 @@ export default function CreateBar() {
     console.log(text);
 
     return (
-
+    <View>
         <View>
             <Text style={styles.titulo}> Adicionar Tarefa</Text>
 
@@ -30,6 +33,10 @@ export default function CreateBar() {
 
 
             />
+            
+
+            
+
 
             <TextInput
                 style={[styles.descricao, { height: altura }]}
@@ -38,12 +45,22 @@ export default function CreateBar() {
                 multiline={true}
             />
 
+            
 
             <CalendarComponent style={styles.relogio}/>
 
+
+            
+
         </View>
 
+        <View>
+
+            
         
+        </View>
+
+    </View>
 
         
     )
@@ -77,4 +94,15 @@ const styles = StyleSheet.create({
 
 
     },
+
+    botao: {
+        backgroundColor: 'white',
+        borderRadius: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 4,
+        borderWidth: 1,
+    },
+
+    
 })

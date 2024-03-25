@@ -14,7 +14,7 @@ const CalendarComponent = () => {
       <Calendar
         onDayPress={handleDayPress}
         markedDates={{
-          [selectedDate]: { selected: true, marked: true, selectedColor: 'blue' },
+          [selectedDate]: { selected: true, marked: true, selectedColor: 'yellow' },
         }}
       />
     </View>

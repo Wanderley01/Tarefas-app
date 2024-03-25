@@ -1,14 +1,20 @@
 import { StyleSheet, View, Text, Image} from 'react-native';
-
+import Vazio from '../../components/vazio';
 
 export default function Home() {
     return (
+    <View>
         <View style={styles.container}>
             <Image source={require('../images/tarefas.png')} style={styles.logo} />
             <Text style={styles.titlile}>
                 Suas tarefas
             </Text>
         </View>
+
+        <View>
+            <Vazio/>
+        </View>
+    </View>
     );
 }
 
