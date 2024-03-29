@@ -1,20 +1,26 @@
-import { StyleSheet, View, Text, Image} from 'react-native';
+import { StyleSheet, View, Text, Image, Link } from 'react-native';
 import Vazio from '../../components/vazio';
+import { useRoute } from '@react-navigation/native';
+import React from 'react';
 
 export default function Home() {
-    return (
-    <View>
-        <View style={styles.container}>
-            <Image source={require('../images/tarefas.png')} style={styles.logo} />
-            <Text style={styles.titlile}>
-                Suas tarefas
-            </Text>
-        </View>
 
+
+
+    return (
         <View>
-            <Vazio/>
+        
+            <View style={styles.container}>
+                <Image source={require('../images/tarefas.png')} style={styles.logo} />
+                <Text style={styles.titlile}>
+                    Suas tarefas
+                </Text>
+            </View>
+
+            <View>
+              <Vazio/>
+            </View>
         </View>
-    </View>
     );
 }
 
@@ -26,9 +32,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 30,
         borderWidth: 2
-        
+
     },
-    titlile : {
+    titlile: {
         fontSize: 20,
         fontWeight: 'bold',
         color: '#000',
@@ -38,12 +44,15 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         borderWidth: 1,
         borderColor: 'black',
-        
+
     },
 
     logo: {
         width: 90,
         height: 90,
-        resizeMode: 'contain',    
-     }
+        resizeMode: 'contain',
+    },
+    
+   
+    
 });

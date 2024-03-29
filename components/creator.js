@@ -1,72 +1,85 @@
-import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Button, TouchableOpacity, Image } from 'react-native';
 import React, { useState } from 'react';
-import CalendarComponent from './relogio';
-import BotaoCor from './color';
+import { Calendar } from 'react-native-calendars';
+import { useNavigation } from '@react-navigation/native';
+
+
 
 export default function CreateBar() {
-    const [text, setText] = useState('');
-    const [altura, setAltura] = useState(40);
-    
-    function saveTask() {
 
-    }
 
-    function pularTexto() {
-        if (setText < 36) {
-            setAltura(80);
-        } else {
-            setAltura(40);
-        }
-    }
+    const [nome, setNome] = useState('');
+    const [descricao, setDescricao] = useState('');
+    const [selectedDate, setSelectedDate] = useState('');
 
-    console.log(text);
+    const handleDayPress = (day) => {
+        setSelectedDate(day.dateString);
+    };
+
+
 
     return (
-    <View>
-        <View>
-            <Text style={styles.titulo}> Adicionar Tarefa</Text>
+        <View >
+            <View style={styles.grade} >
+                <Text style={styles.titulo}> Adicionar Tarefa</Text>
 
-            <TextInput
-                style={styles.digitar}
-                placeholder="Nome"
-                placeholderTextColor="#808080"
-
-
-            />
-            
-
-            
+                <TextInput
+                    style={styles.digitar}
+                    placeholder="Nome"
+                    placeholderTextColor="#808080"
+                    onChangeText={setNome}
+                    value={nome}
+                />
 
 
-            <TextInput
-                style={[styles.descricao, { height: altura }]}
-                placeholder="Descrição"
-                placeholderTextColor="#808080"
-                multiline={true}
-            />
 
-            
+                <TextInput
+                    style={styles.descricao}
+                    placeholder="Descrição"
+                    placeholderTextColor="#808080"
+                    multiline={true}
+                    onChangeText={setDescricao}
+                    value={descricao}
+                />
 
-            <CalendarComponent style={styles.relogio}/>
 
 
-            
+                <View style={styles.container}>
+                    <Calendar
+                        onDayPress={handleDayPress}
+                        markedDates={{
+                            [setSelectedDate]: { selected: true, marked: true, selectedColor: 'black' },
+                        }}
+                        value={selectedDate}
+                    />
+                </View>
+
+
+                <View style={styles.botao}>
+                    <TouchableOpacity style={styles.botton}>
+                        <Image source={require('../src/images/vazio.png')} style={{ width: 20, height: 20 }} />
+                    </TouchableOpacity>
+                </View>
+
+
+            </View>
+
 
         </View>
 
-        <View>
 
-            
-        
-        </View>
-
-    </View>
-
-        
     )
 }
 
 const styles = StyleSheet.create({
+
+    grade: {
+        backgroundColor: 'lightblue',
+        borderRadius: 7,
+        padding: 20,
+    },
+
+
     digitar: {
         backgroundColor: 'white',
         borderRadius: 4,
@@ -74,24 +87,23 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         margin: 10,
         borderWidth: 1,
+        padding: 10,
     },
 
     titulo: {
         fontSize: 20,
         fontWeight: 'bold',
         color: 'black',
-        textAlign: 'left',
+        textAlign: 'center',
         margin: 10,
+        padding: 10,
     },
 
     descricao: {
         backgroundColor: 'white',
         borderRadius: 4,
-        paddingBottom: 4,
-        paddingLeft: 1,
+        padding: 10,
         borderWidth: 1,
-
-
 
     },
 
@@ -100,9 +112,39 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 4,
+        marginTop: 8,
         borderWidth: 1,
     },
 
-    
+    relogio: {
+        backgroundColor: '',
+        borderRadius: 4,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 1,
+
+    },
+
+    container: {
+        flex: 1,
+        backgroundColor: 'white',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 10,
+        borderWidth: 1,
+        borderRadius: 2,
+
+    },
+
+    botton: {
+        borderRadius: 50,
+        backgroundColor: 'white',
+        alignItems: 'center',
+        paddingLeft: 90,
+        paddingRight: 90,
+        paddingTop: 5,
+        paddingBottom: 5,
+    }
+
+
 })
