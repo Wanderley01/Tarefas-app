@@ -16,6 +16,19 @@ export default function CreateBar() {
         setSelectedDate(day.dateString);
     };
 
+  
+    const navigation = useNavigation();
+
+    const tarefas = [
+        {
+            id: 1,
+            nome: nome,
+            descricao: descricao,
+            data: selectedDate
+        }
+    ]
+
+
 
 
     return (
@@ -48,7 +61,7 @@ export default function CreateBar() {
                     <Calendar
                         onDayPress={handleDayPress}
                         markedDates={{
-                            [setSelectedDate]: { selected: true, marked: true, selectedColor: 'black' },
+                            [setSelectedDate]: { selected: true, marked: true, selectedColor: 'blue', color: 'blue' },
                         }}
                         value={selectedDate}
                     />
@@ -56,7 +69,7 @@ export default function CreateBar() {
 
 
                 <View style={styles.botao}>
-                    <TouchableOpacity style={styles.botton}>
+                    <TouchableOpacity style={styles.botton} onPress={() => navigation.navigate('home', {tarefas} )}>
                         <Image source={require('../src/images/vazio.png')} style={{ width: 20, height: 20 }} />
                     </TouchableOpacity>
                 </View>
@@ -127,7 +140,7 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: 'blue',
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 10,

@@ -2,10 +2,14 @@ import { StyleSheet, View, Text, Image, Link } from 'react-native';
 import Vazio from '../../components/vazio';
 import { useRoute } from '@react-navigation/native';
 import React from 'react';
+import { useEffect } from 'react';
+export default function Home({route}) {
+    
 
-export default function Home() {
+    const task = route.params
 
-
+    console.log(task);
+    
 
     return (
         <View>
@@ -18,7 +22,7 @@ export default function Home() {
             </View>
 
             <View>
-              <Vazio/>
+              <Text></Text>
             </View>
         </View>
     );
