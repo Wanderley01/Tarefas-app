@@ -2,33 +2,24 @@ import { StyleSheet, View, Text, TextInput, Button, TouchableOpacity, Image } fr
 import React, { useState } from 'react';
 import { Calendar } from 'react-native-calendars';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
-
-export default function CreateBar() {
+export default function CreateBar({navigation}) {
 
 
     const [nome, setNome] = useState('');
     const [descricao, setDescricao] = useState('');
     const [selectedDate, setSelectedDate] = useState('');
-
+    
     const handleDayPress = (day) => {
         setSelectedDate(day.dateString);
     };
 
-  
-    const navigation = useNavigation();
-
-    const tarefas = [
-        {
-            id: 1,
-            nome: nome,
-            descricao: descricao,
-            data: selectedDate
-        }
-    ]
-
-
+        
+   
+    
+    
 
 
     return (
@@ -61,15 +52,15 @@ export default function CreateBar() {
                     <Calendar
                         onDayPress={handleDayPress}
                         markedDates={{
-                            [setSelectedDate]: { selected: true, marked: true, selectedColor: 'blue', color: 'blue' },
+                            [selectedDate]: { selected: true, marked: true, selectedColor: 'red', color: 'blue' },
                         }}
-                        value={selectedDate}
+                        value={setSelectedDate}
                     />
                 </View>
 
 
                 <View style={styles.botao}>
-                    <TouchableOpacity style={styles.botton} onPress={() => navigation.navigate('home', {tarefas} )}>
+                    <TouchableOpacity style={styles.botton}>
                         <Image source={require('../src/images/vazio.png')} style={{ width: 20, height: 20 }} />
                     </TouchableOpacity>
                 </View>
@@ -90,6 +81,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'lightblue',
         borderRadius: 7,
         padding: 20,
+        borderWidth: 3,
     },
 
 

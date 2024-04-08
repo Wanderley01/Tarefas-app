@@ -2,16 +2,18 @@ import { StyleSheet, View, Text, Image, Link } from 'react-native';
 import Vazio from '../../components/vazio';
 import { useRoute } from '@react-navigation/native';
 import React from 'react';
-import { useEffect } from 'react';
-export default function Home({route}) {
+import { useEffect, useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
+export default function Home() {
+    
     
 
-    const task = route.params
+   
+     
 
-    console.log(task);
-    
-
-    return (
+    return (    
         <View>
         
             <View style={styles.container}>
@@ -22,7 +24,7 @@ export default function Home({route}) {
             </View>
 
             <View>
-              <Text></Text>
+              <Vazio/>
             </View>
         </View>
     );

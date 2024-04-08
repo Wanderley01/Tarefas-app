@@ -11,7 +11,7 @@ export default function Create() {
             <Image source={require('../images/tarefas.png')} style={styles.logo} />
 
 
-            <View style={styles.container}>
+            <View style={styles.container2}>
                   <CreateBar/>
             </View>
 
@@ -22,6 +22,17 @@ export default function Create() {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
+        backgroundColor: 'cornflowerblue',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 40,
+        borderWidth: 2,
+        
+       
+    },
+
+    container2: {
         flex: 1,
         backgroundColor: 'cornflowerblue',
         alignItems: 'center',
