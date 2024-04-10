@@ -1,25 +1,37 @@
-import { StyleSheet, View, Text, TextInput, Button, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Button, TouchableOpacity, Image,  } from 'react-native';
 import React, { useState } from 'react';
 import { Calendar } from 'react-native-calendars';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
-export default function CreateBar({navigation}) {
+export default function CreateBar() {
 
 
     const [nome, setNome] = useState('');
     const [descricao, setDescricao] = useState('');
     const [selectedDate, setSelectedDate] = useState('');
     
+
     const handleDayPress = (day) => {
         setSelectedDate(day.dateString);
     };
 
-        
-   
-    
-    
+    const salvarTarefa = async () => {
+        try {
+            const tarefa = {
+                nome,
+                descricao,
+                selectedDate,
+            };
+            const tarefasAntigas = await AsyncStorage.getItem('tarefas');
+            const tarefas = tarefasAntigas ? JSON.parse(tarefasAntigas) : [];
+            tarefas.push(tarefa);
+            await AsyncStorage.setItem('tarefas', JSON.stringify(tarefas));
+        } catch (error) {
+            console.error('Erro ao salvar tarefa:', error);
+        }
+    };
 
 
     return (
@@ -60,7 +72,7 @@ export default function CreateBar({navigation}) {
 
 
                 <View style={styles.botao}>
-                    <TouchableOpacity style={styles.botton}>
+                    <TouchableOpacity style={styles.botton} onPress={salvarTarefa}>
                         <Image source={require('../src/images/vazio.png')} style={{ width: 20, height: 20 }} />
                     </TouchableOpacity>
                 </View>
