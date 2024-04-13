@@ -27,9 +27,9 @@ export default function Home() {
     
     const renderItem = ({ item }) => (
         <View style={styles.itens}>
-            <Text>{item.nome}</Text>
-            <Text>{item.descricao}</Text>
-            <Text>{item.selectedDate}</Text>    
+            <Text style={styles.nome}>{item.nome}</Text>
+            <Text style={styles.nome}>{item.descricao}</Text>
+            <Text style={styles.nome}>{item.selectedDate}</Text>    
         </View>
     );
     
@@ -45,6 +45,10 @@ export default function Home() {
                 </Text>
             </View>
 
+            <View>
+                <Vazio/>
+            </View>
+
             <View style={styles.results}>
                
 
@@ -53,6 +57,7 @@ export default function Home() {
                 renderItem={renderItem}
                 keyExtractor={(item, index) => index.toString()}
                 />  
+
             </View>
         </View>
     );
@@ -132,6 +137,19 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         margin: 3,
 
+    },
+
+    nome: {
+        fontSize: 17,
+        fontWeight: 'bold',
+        color: '#000',
+        textAlign: 'center',
+        backgroundColor: 'white',
+        borderRadius: 10,
+        borderWidth: 2,
+        borderColor: 'black',
+        margin: 3,
+        padding: 1,
     }
    
     

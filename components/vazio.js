@@ -1,12 +1,18 @@
-import { StyleSheet, View, Text, TextInput, Button, Image } from 'react-native';
-
+import { StyleSheet, View, Text, TextInput, Button, Image, TouchableOpacity } from 'react-native';
+import { Updates } from 'expo-updates';
 
 
 export default function Vazio() {
+
+    const reloadApp = () => {
+        Updates.reload();
+      };
+
+
     return (
-        <View style={styles.empy}>
+        <TouchableOpacity style={styles.empy} onPress={reloadApp}>
             <Image source={require('../src/images/vazio.png')} style={{ width: 20, height: 20 }} />
-        </View>
+        </TouchableOpacity>
     )
 }
 

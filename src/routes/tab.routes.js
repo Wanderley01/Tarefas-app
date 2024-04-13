@@ -7,6 +7,10 @@ import Home from '../screens/Home';
 const Tab = createBottomTabNavigator();
 
 export default function TabRoutes() {
+
+    
+
+
     return(
 
         <Tab.Navigator screenOptions={{ headerShown: false}} >
@@ -18,6 +22,8 @@ export default function TabRoutes() {
                tabBarIcon: ({color, size}) => <Feather name="home" color={color} size={size}/>,
                tabBarLabel: 'Tarefas'
             }}
+             
+            
             />
             
             <Tab.Screen 
@@ -30,5 +36,8 @@ export default function TabRoutes() {
             />
 
         </Tab.Navigator>
+
+
+             
     )
 }

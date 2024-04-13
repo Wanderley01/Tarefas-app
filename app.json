@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Tarefas",
-    "slug": "Tarefas",
+    "slug": "c4e3f0a5-4050-4a35-9c3c-ccfb39235e0d",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/images/tarefas.png",
@@ -9,23 +9,35 @@
     "splash": {
       "image": "./src/images/tarefas.png",
       "resizeMode": "contain",
-      "backgroundColor": "white"
+      "backgroundColor": "#FFFFFF"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anonymous.Tarefas"
+      "package": "com.anonymous.Tarefas",
+      "runtimeVersion": "1.0.0"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c4e3f0a5-4050-4a35-9c3c-ccfb39235e0d"
+      }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/c4e3f0a5-4050-4a35-9c3c-ccfb39235e0d"
     }
   }
 }
