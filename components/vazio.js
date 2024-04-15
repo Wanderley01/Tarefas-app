@@ -4,13 +4,9 @@ import { Updates } from 'expo-updates';
 
 export default function Vazio() {
 
-    const reloadApp = () => {
-        Updates.reload();
-      };
-
-
+    
     return (
-        <TouchableOpacity style={styles.empy} onPress={reloadApp}>
+        <TouchableOpacity style={styles.empy} >
             <Image source={require('../src/images/vazio.png')} style={{ width: 20, height: 20 }} />
         </TouchableOpacity>
     )
